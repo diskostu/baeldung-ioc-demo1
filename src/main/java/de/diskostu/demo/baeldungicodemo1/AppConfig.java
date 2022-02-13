@@ -15,13 +15,31 @@ public class AppConfig {
      * name will default to the method name.
      */
     @Bean
-    public Item item() {
+    public Item item1() {
+        return new ItemImpl1();
+    }
+
+
+    /**
+     * Here, we have two beans of type {@link Item}.
+     */
+    @Bean
+    public Item item2() {
+        return new ItemImpl1();
+    }
+
+
+    /**
+     * Here, we use a custom name for the bean.
+     */
+    @Bean(name = "itemNumberThree")
+    public Item item3() {
         return new ItemImpl1();
     }
 
 
     @Bean
     public Store store() {
-        return new Store(item());
+        return new Store(item1());
     }
 }
