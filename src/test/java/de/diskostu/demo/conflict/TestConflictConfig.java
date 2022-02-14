@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 @TestConfiguration
 public class TestConflictConfig {
     @Bean
-    public Item item1() {
+    public Item testItem1() {
         return new ItemImpl1(TestConflictConfig.class.getSimpleName() + " / item1");
     }
 
