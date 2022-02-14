@@ -1,4 +1,4 @@
-package de.diskostu.demo.baeldungicodemo1;
+package de.diskostu.demo.model;
 
 
 import lombok.Getter;

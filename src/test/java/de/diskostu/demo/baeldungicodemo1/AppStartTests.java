@@ -1,5 +1,8 @@
 package de.diskostu.demo.baeldungicodemo1;
 
+import de.diskostu.demo.model.Item;
+import de.diskostu.demo.model.Store;
+import de.diskostu.demo.otherpackage.DemoPojo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,10 +35,17 @@ class AppStartTests {
     private Item item3;
 
 
+    @Autowired
+    private DemoPojo demoPojo;
+
+
     @Test
     void contextLoads() {
         assertThat(item).isNotNull();
         assertThat(item3).isNotNull();
         assertThat(store.getItem()).isNotNull();
+        assertThat(demoPojo).isNotNull();
+
+        System.out.println("item = " + item.getItemName());
     }
 }

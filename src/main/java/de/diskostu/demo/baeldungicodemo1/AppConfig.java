@@ -1,13 +1,20 @@
 package de.diskostu.demo.baeldungicodemo1;
 
+import de.diskostu.demo.model.Item;
+import de.diskostu.demo.model.ItemImpl1;
+import de.diskostu.demo.model.Store;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * The {@link Configuration} annotation is used to mark a class as a source of bean definitions. Multiple
- * configuration classes are possible.
+ * <p>The {@link Configuration} annotation is used to mark a class as a source of bean definitions. Multiple
+ * configuration classes are possible.</p>
+ * <p>If we want to have beans in the context which are not declared in this package hierarchy, we have to mention
+ * these other packages via {@link ComponentScan}.</p>
  */
 @Configuration
+@ComponentScan("de.diskostu.demo.otherpackage")
 public class AppConfig {
 
     /**
@@ -16,7 +23,7 @@ public class AppConfig {
      */
     @Bean
     public Item item1() {
-        return new ItemImpl1();
+        return new ItemImpl1(AppConfig.class.getSimpleName() + " / item1");
     }
 
 
@@ -25,7 +32,7 @@ public class AppConfig {
      */
     @Bean
     public Item item2() {
-        return new ItemImpl1();
+        return new ItemImpl1(AppConfig.class.getSimpleName() + " / item2");
     }
 
 
@@ -34,7 +41,7 @@ public class AppConfig {
      */
     @Bean(name = "itemNumberThree")
     public Item item3() {
-        return new ItemImpl1();
+        return new ItemImpl1(AppConfig.class.getSimpleName() + " / item3");
     }
 
 
